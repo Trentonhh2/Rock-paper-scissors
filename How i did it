@@ -1,0 +1,73 @@
+var getUserChoice = function (userInput) {
+    userInput = userInput.toLowerCase();
+    if (userInput === 'rock' || userInput === 'Rock') {
+        return userInput;
+    } else if (userInput === 'paper' || userInput === 'Paper') {
+        return userInput;
+    } else if (userInput === 'scissors' ||  userInput === 'Scissors') {
+        return userInput;
+    } else if (userInput === 'bomb' || 'Bomb')
+        return userInput; 
+    else {
+        return console.log('That is not a thing');
+    };
+};
+
+
+const getComputerChoice = function () {
+    randomNumber = Math.floor(Math.random() * 3);
+    if (randomNumber === 0) {
+        return 'rock';
+    }  else if (randomNumber === 1) {
+        return 'paper';
+    } else if (randomNumber === 2) {
+        return 'scissors';
+    } 
+}
+
+
+
+const determineWinner = function (userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+        return console.log('TIE');
+    } 
+    
+if (userChoice === 'rock') {
+    if (computerChoice === 'paper') {
+    return console.log('Computer Won');
+} else {
+    return console.log('User won');
+}
+}
+
+if (userChoice === 'paper') {
+    if (computerChoice === 'rock') {
+    return console.log('User won');
+    } else if (computerChoice === 'scissors') {
+    return console.log('Computer won');
+    }
+}
+
+if (userChoice === 'scissors') {
+    if (computerChoice === 'rock') {
+    console.log('Copmuter won');
+    } else if (computerChoice === 'paper') {
+    console.log('User won');
+    }
+}
+};
+
+
+
+var playGame = function () {
+    var userChoice = getUserChoice('bomb');
+    var computerChoice = getComputerChoice();
+    console.log(userChoice);
+    console.log(computerChoice);
+    determineWinner(userChoice, computerChoice);
+    if (userChoice === 'bomb') {
+        console.log('AUTO WIN')
+    }
+}
+
+playGame();
